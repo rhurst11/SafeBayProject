@@ -25,30 +25,7 @@ import re
 
 
 from pathlib import Path
-# import cv2
 
-"""
-
-cam=cv2.VideoCapture(0)
-
-cv2.namedWindow("Python Webcam")
-
-img_counter = 0
-
-while True:
-    ret,frame = cam.read()
-
-    if not ret:
-        print("failed to grab frame")
-        break
-    cv2.imshow("test", frame)
-
-
-
-cam.release 
-
-cam.destroyAllWindows()
-"""
 
 
 posts = [
@@ -130,9 +107,9 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-    # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    # return render_template('account.html', title='Account', image_file=image_file, form=form)
-    return render_template('account.html', title='Account', form=form)
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('account.html', title='Account', image_file=image_file, form=form)
+
 
 @app.route("/coming_soon")
 def coming_soon():
@@ -294,13 +271,11 @@ def facereg():
 def facesetup():
     if request.method == "POST":
 
-        image = (request.form.get("pic"))
-
         encoded_image = (request.form.get("pic")+"==").encode('utf-8')
         # print(session["user_id"])
 
 
-        id_ = current_user.get_id()
+        # id_ = current_user.get_id()
         # id_=db.session.execute("SELECT id FROM user WHERE id = :user_id", user_id=session["user_id"])[0]["id"]
         # id_ = db.execute("SELECT id FROM users WHERE id = :user_id", user_id=session["user_id"])[0]["id"]    
         compressed_data = zlib.compress(encoded_image, 9) 
@@ -308,33 +283,17 @@ def facesetup():
         uncompressed_data = zlib.decompress(compressed_data)
         decoded_data = b64decode(uncompressed_data)
 
-        # (TO ADD DECODED DATA TO DATABASE)
-        # current_user.image_file = decoded_data
-        # db.session.commit()
+        current_user.image_file = decoded_data
 
-        # with open('./static/face/'+(str(id_))+'jpg', 'w') as test:
-        #     # test.write(current_user.image_file)
+        db.session.commit()
 
-        img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face/test_pic_capture{}.jpg').format(id_)
-        print(img_path)
-
-        open (img_path, 'x').close()
-
-        # test_image_handle = "test_pic_capture{}.jpg".format(id_)
-
-        # (test_image_handle)
-        
-        new_image_handle = open(img_path, 'wb')
-        # print(new_image_handle)
-        new_image_handle.write(decoded_data)
-        new_image_handle.close()
 
 
         # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
 
         # img_path = Path('./static/face/'+str(id_)+'.jpg', 'wb')
 
-        # img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face')
+        img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face')
 
         # with open(img_path+str(id_)+'.jpg', 'w') as test: 
         #      test.write("test")
@@ -344,9 +303,8 @@ def facesetup():
 # ('./static/face/'+str(id_)+'.jpg', 'wb')
 
 
-        # new_image_handle = open('./static/face/'+str(id_)+'.jpg', 'wb')
-    #     new_image_handle = str(id_)
-    #     new_image_handle = current_user.image_file
+    #     new_image_handle = open('./static/face/'+str(id_)+'.jpg', 'wb')
+    #     # new_image_handle = open(img_path)
     
     #     new_image_handle.write(decoded_data)
     #     new_image_handle.close()
@@ -359,8 +317,7 @@ def facesetup():
     #     return redirect("/home")
 
     # else:
-    #     return render_template("face.html")
-            # return render_template("face.html")
+        # return render_template("face.html")
     return render_template("face.html")
 
 
