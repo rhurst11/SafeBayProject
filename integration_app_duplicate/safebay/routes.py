@@ -219,6 +219,47 @@ def authentication():
 
 
 
+# ORIGINAL ROUTE
+@app.route("/facesetup", methods=["GET", "POST"])
+@login_required
+def facesetup():
+    if request.method == "POST":
+
+        image = (request.form.get("pic"))
+
+        encoded_image = (request.form.get("pic")+"==").encode('utf-8')
+        # print(session["user_id"])
+
+
+        id_ = current_user.get_id()
+        # id_=db.session.execute("SELECT id FROM user WHERE id = :user_id", user_id=session["user_id"])[0]["id"]
+        # id_ = db.execute("SELECT id FROM users WHERE id = :user_id", user_id=session["user_id"])[0]["id"]    
+        compressed_data = zlib.compress(encoded_image, 9) 
+        
+        uncompressed_data = zlib.decompress(compressed_data)
+        decoded_data = b64decode(uncompressed_data)
+
+        # (TO ADD DECODED DATA TO DATABASE)
+        # current_user.image_file = decoded_data
+        # db.session.commit()
+
+        img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face/test_pic_capture{}.jpg').format(id_)
+        print(img_path)
+
+        open (img_path, 'x').close()
+        
+        new_image_handle = open(img_path, 'wb')
+        # print(new_image_handle)
+        final_pic = new_image_handle.write(decoded_data)
+        final_pic
+        new_image_handle.close()
+
+        current_user.image_file = final_pic
+        db.session.commit()
+
+
+    return render_template("face.html")
+
 @app.route("/facereg", methods=["GET", "POST"])
 def facereg():
 
@@ -238,7 +279,13 @@ def facereg():
         if len(name) != 1:
             return render_template("camera.html",message = 1)
 
-        id_ = name[0]['id']    
+        
+        # ORIGINAL ID RETRIEVAL STRATEGY
+        # id_ = name[0]['id']
+
+
+        # UPDATED ID RETRIEVAL TEST
+        id_ = current_user.get_id()    
         compressed_data = zlib.compress(encoded_image, 9) 
         
         uncompressed_data = zlib.decompress(compressed_data)
@@ -284,84 +331,6 @@ def facereg():
 
     else:
         return render_template("camera.html")
-
-
-
-
-# ORIGINAL ROUTE
-@app.route("/facesetup", methods=["GET", "POST"])
-@login_required
-def facesetup():
-    if request.method == "POST":
-
-        image = (request.form.get("pic"))
-
-        encoded_image = (request.form.get("pic")+"==").encode('utf-8')
-        # print(session["user_id"])
-
-
-        id_ = current_user.get_id()
-        # id_=db.session.execute("SELECT id FROM user WHERE id = :user_id", user_id=session["user_id"])[0]["id"]
-        # id_ = db.execute("SELECT id FROM users WHERE id = :user_id", user_id=session["user_id"])[0]["id"]    
-        compressed_data = zlib.compress(encoded_image, 9) 
-        
-        uncompressed_data = zlib.decompress(compressed_data)
-        decoded_data = b64decode(uncompressed_data)
-
-        # (TO ADD DECODED DATA TO DATABASE)
-        # current_user.image_file = decoded_data
-        # db.session.commit()
-
-        # with open('./static/face/'+(str(id_))+'jpg', 'w') as test:
-        #     # test.write(current_user.image_file)
-
-        img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face/test_pic_capture{}.jpg').format(id_)
-        print(img_path)
-
-        open (img_path, 'x').close()
-
-        # test_image_handle = "test_pic_capture{}.jpg".format(id_)
-
-        # (test_image_handle)
-        
-        new_image_handle = open(img_path, 'wb')
-        # print(new_image_handle)
-        new_image_handle.write(decoded_data)
-        new_image_handle.close()
-
-
-        # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-
-        # img_path = Path('./static/face/'+str(id_)+'.jpg', 'wb')
-
-        # img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face')
-
-        # with open(img_path+str(id_)+'.jpg', 'w') as test: 
-        #      test.write("test")
-
-        # ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face'+str(id_)+'.jpg', 'wb')
-        
-# ('./static/face/'+str(id_)+'.jpg', 'wb')
-
-
-        # new_image_handle = open('./static/face/'+str(id_)+'.jpg', 'wb')
-    #     new_image_handle = str(id_)
-    #     new_image_handle = current_user.image_file
-    
-    #     new_image_handle.write(decoded_data)
-    #     new_image_handle.close()
-    #     image_of_bill = face_recognition.load_image_file(
-    #     './static/face/'+str(id_)+'.jpg')    
-    #     try:
-    #         bill_face_encoding = face_recognition.face_encodings(image_of_bill)[0]
-    #     except:    
-    #         return render_template("face.html",message = 1)
-    #     return redirect("/home")
-
-    # else:
-    #     return render_template("face.html")
-            # return render_template("face.html")
-    return render_template("face.html")
 
 
 # MODIFIED FACESETUP ROUTE
