@@ -267,11 +267,12 @@ def facereg():
     # return render_template("face.html")
 
    
-    session.clear()
+    # session.clear()
     if request.method == "POST":
 
 
         encoded_image = (request.form.get("pic")+"==").encode('utf-8')
+        
         username = request.form.get("name")
         name = db.session.execute(f"SELECT * FROM user WHERE username = '{username}'").fetchall()
         print(len(name))
@@ -285,7 +286,9 @@ def facereg():
 
 
         # UPDATED ID RETRIEVAL TEST
-        id_ = current_user.get_id()    
+        id_ = current_user.get_id()
+        print(id_)
+
         compressed_data = zlib.compress(encoded_image, 9) 
         
         uncompressed_data = zlib.decompress(compressed_data)
@@ -293,36 +296,43 @@ def facereg():
         decoded_data = b64decode(uncompressed_data)
 
         # img_path = ('./static/face/'+str(id_)+'.jpg', 'wb')
+
+        img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face/test_pic_capture{}.jpg').format(id_)
+
+        face_trial_img_path = ('/Users/raymondhurst/Desktop/SafeBay_Bucket/SafeBayProject/integration_app_duplicate/safebay/static/face_trial/test_pic_capture{}.jpg').format(id_)
+        print(face_trial_img_path)
+
+        open (face_trial_img_path, 'w').close()
         
-        new_image_handle = open('./static/face/'+str(id_)+'.jpg', 'wb')
+        # new_image_handle = open('./static/face/'+str(id_)+'.jpg', 'wb')
 
         # new_image_handle = open(img_path)
         
+
+        new_image_handle = open(face_trial_img_path, 'wb')
         new_image_handle.write(decoded_data)
         new_image_handle.close()
         try:
-            image_of_bill = face_recognition.load_image_file(
-            './static/face/'+str(id_)+'.jpg')
+            image_of_bill = face_recognition.load_image_file(img_path)
         except:
             return render_template("camera.html",message = 5)
 
         bill_face_encoding = face_recognition.face_encodings(image_of_bill)[0]
 
-        unknown_image = face_recognition.load_image_file(
-        './static/face/'+str(id_)+'.jpg')
+        unknown_image = face_recognition.load_image_file(face_trial_img_path)
         try:
             unknown_face_encoding = face_recognition.face_encodings(unknown_image)[0]
         except:
             return render_template("camera.html",message = 2)
 
 
-#  o    mpare faces
+#  compare faces
         results = face_recognition.compare_faces(
         [bill_face_encoding], unknown_face_encoding)
 
         if results[0]:
-            username = db.execute("SELECT * FROM user WHERE username = 'swa'")
-            session["user_id"] = username[0]["id"]
+            # username = db.execute("SELECT * FROM user WHERE username = 'swa'")
+            # session["user_id"] = username[0]["id"]
             return redirect("/")
         else:
             return "You'r not allowed"
