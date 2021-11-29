@@ -30,14 +30,20 @@ from pathlib import Path
 
 posts = [
     {
-        'author': "example user"
+        'author': 'example user',
+        'wallet_name': 'Metamask Wallet 1 Recovery Phrase',
+        'seedphrase': 'DISCLAIMER THIS IS A PROOF OF CONCEPT, DO NOT ATTEMPT TO POST ANY SEEDPHRASE INFORMATION UNTIL WE CONDUCT A 3RD-PARTY SECURITY AUDIT',
+        'date_posted': 'November 26, 2021'
 
     },
     {
+        'author': 'example user',
+        'wallet_name': 'Ledger Nano S Recovery Phrase',
+        'seedphrase': 'DISCLAIMER THIS IS A PROOF OF CONCEPT, DO NOT ATTEMPT TO POST ANY SEEDPHRASE INFORMATION UNTIL WE CONDUCT A 3RD-PARTY SECURITY AUDIT',
+        'date_posted': 'November 23, 2021'
         
     }
 ]
-
 
 @app.route("/")
 @app.route("/home")
