@@ -270,6 +270,15 @@ def facereg():
 def seed():
     return render_template("seed.html", posts=posts)
 
+@app.route("/whitepaper")
+def whitepaper():
+    return render_template("coming_soon.html")
+
+@app.route("/whitelist")
+def whitelist():
+    return render_template("whitelist.html")
+
+
 
 def errorhandler(e):
     """Handle error"""
