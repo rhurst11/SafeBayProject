@@ -143,65 +143,9 @@ def authentication():
             flash('Authentication Unsuccessful. Please check email and password', 'danger')
     return render_template('face_register_gate.html', title='Authentication', form=form)
 
-    # return render_template("face_register_gate.html")
 
 
-
-    # # User reached route via POST (as by submitting a form via POST)
-    # if request.method == "POST":
-
-    #     # Assign inputs to variables
-    #     input_username = request.form.get("username")
-    #     input_password = request.form.get("password")
-    #     input_confirmation = request.form.get("confirmation")
-
-    #     # Ensure username was submitted
-    #     if not input_username:
-    #         return render_template("register.html",messager = 1)
-
-    #     # Ensure password was submitted
-    #     elif not input_password:
-    #         return render_template("register.html",messager = 2)
-
-    #     # Ensure passwsord confirmation was submitted
-    #     elif not input_confirmation:
-    #         return render_template("register.html",messager = 4)
-
-    #     elif not input_password == input_confirmation:
-    #         return render_template("register.html",messager = 3)
-
-    #     # Query database for username
-    #     username = db.execute("SELECT username FROM users WHERE username = :username",
-    #                           username=input_username)
-
-    #     # Ensure username is not already taken
-    #     if len(username) == 1:
-    #         return render_template("register.html",messager = 5)
-
-    #     # Query database to insert new user
-    #     else:
-    #         new_user = db.session.execute("INSERT INTO users (username, hash) VALUES (:username, :password)",
-    #                               username=input_username,
-    #                               password=generate_password_hash(input_password, method="pbkdf2:sha256", salt_length=8),)
-
-    #         if new_user:
-    #             # Keep newly registered user logged in
-    #             session["user_id"] = new_user
-
-    #         # Flash info for the user
-    #         flash(f"Registered as {input_username}")
-
-    #         # Redirect user to homepage
-    #         return redirect("/")
-
-    # # User reached route via GET (as by clicking a link or via redirect)
-    # else:
-    #     return render_template("register.html")
-
-
-
-
-# ORIGINAL ROUTE
+# Face Setup ROUTE
 @app.route("/facesetup", methods=["GET", "POST"])
 @login_required
 def facesetup():
@@ -244,11 +188,10 @@ def facesetup():
 
     return render_template("face.html")
 
+
+# Face Recognition / Comparison Route
 @app.route("/facereg", methods=["GET", "POST"])
 def facereg():
-
-    # return render_template("camera.html")
-    # return render_template("face.html")
 
    
     # session.clear()
@@ -263,10 +206,6 @@ def facereg():
               
         if len(name) != 1:
             return render_template("camera.html",message = 1)
-
-        
-        # ORIGINAL ID RETRIEVAL STRATEGY
-        # id_ = name[0]['id']
 
 
         # UPDATED ID RETRIEVAL TEST
