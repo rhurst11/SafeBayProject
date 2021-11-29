@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>About Page</h1>
+
+
+
+
+
+        <ul class="nav">
+            <li class="nav-item profile">
+              <div class="profile-desc">
+                <div class="profile-pic">
+                  <div class="count-indicator">
+                    <img class="img-xs rounded-square " src="/static/images/michael.png" alt="Michael Behan" width="180" height="">
+                    <p></p>
+                    <span class="count bg-success"></span>
+                  </div> 
+                </div>
+                
+                <div class="profile-pic">
+                  <div class="count-indicator">
+                    <img class="img-xs rounded-square " src="/static/images/leo.png" alt="Leo Harada" width="180" height="">
+                    <p></p>
+                    <span class="count bg-success"></span>
+                  </div> 
+                </div>
+
+                <div class="profile-pic">
+                  <div class="count-indicator">
+                    <img class="img-xs rounded-square " src="/static/images/nathan.PNG" alt="Nathan Duft" width="180" height="">
+                    <p></p>
+                    <span class="count bg-success"></span>
+                  </div> 
+                </div>
+
+
+                <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                  <a href="#" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-primary"></i>
+                      </div>
+                    </div>
+                   
+                </div>
+              </div>
+            </li>
+            
+          </ul>
+          {% endblock content %}
