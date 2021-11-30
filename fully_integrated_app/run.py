@@ -23,7 +23,7 @@
 #     return f"User('{self.username}', '{self.password}', '{self.image_file}')"
 
 
-#separating routes into its own moduel: routes.py
+#separating routes into its own modue l: routes.py
 
 
 from safebay import app

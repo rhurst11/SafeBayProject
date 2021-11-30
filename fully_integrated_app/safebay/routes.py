@@ -272,11 +272,18 @@ def seed():
 
 @app.route("/whitepaper")
 def whitepaper():
-    return render_template("coming_soon.html")
+    return render_template("whitepaper.html")
 
+
+# NEED TO CHANGE THIS IT IS JUST A PLACEHOLDER UNTIL WE GET HYPERLINK
 @app.route("/whitelist")
 def whitelist():
     return render_template("whitelist.html")
+
+
+@app.route("/token_allocation")
+def token_allocation():
+    return render_template("token_allocation.html") 
 
 
 
