@@ -53,7 +53,7 @@
   "sourceMap": "66:311:10:-:0;;;218:50;5:9:-1;2:2;;;27:1;24;17:12;2:2;218:50:10;253:10;245:5;;:18;;;;;;;;;;;;;;;;;;66:311;;;;;;",
   "deployedSourceMap": "66:311:10:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;66:311:10;;;;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;114:36:10;;;:::i;:::-;;;;;;;;;;;;;;;;;;;90:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;272:103;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;272:103:10;;;;;;;;;;;;;;;;;:::i;:::-;;114:36;;;;:::o;90:20::-;;;;;;;;;;;;;:::o;272:103::-;201:5;;;;;;;;;;;187:19;;:10;:19;;;183:26;;;361:9:::1;334:24;:36;;;;183:26:::0;272:103;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.21 <0.7.0;\n\ncontract Migrations {\n  address public owner;\n  uint public last_completed_migration;\n\n  modifier restricted() {\n    if (msg.sender == owner) _;\n  }\n\n  constructor() public {\n    owner = msg.sender;\n  }\n\n  function setCompleted(uint completed) public restricted {\n    last_completed_migration = completed;\n  }\n}\n",
-  "sourcePath": "/Users/nathanduft/Desktop/SafeBay_whitelisting/SafeBay_Whitelist_Dapp/ethereum-SafeBay-asset-tokenization/contracts/Migrations.sol",
+  "sourcePath": "/Users/nathanduft/Desktop/SafeBay/SafeBay_whitelisting/ethereum-SafeBay-asset-tokenization/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -991,7 +991,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-30T01:27:56.983Z",
+  "updatedAt": "2021-11-30T02:25:08.267Z",
   "devdoc": {
     "methods": {}
   },

@@ -90,10 +90,10 @@ export default function KYCStatus(props) {
         // Updating the states
         setIsKycCompleted(isKycCompleted);
         if (isKycCompleted) {
-            setStatusMessage("You address has been whitelisted. You can buy KRY toneks now.");
+            setStatusMessage("You address has been whitelisted. You can buy SFB tokens now.");
         }
         else {
-            setStatusMessage("You address hasn't been whitelisted yet. Please have patience while your request is being processed.");
+            setStatusMessage("Your address hasn't been whitelisted yet. Please have patience while your request is being processed.");
         }
 
         // Updating the parent component

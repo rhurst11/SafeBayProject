@@ -54,13 +54,13 @@ function partial(func /*, 0..n args */) {
 }
 
 async function getTokenBalance(props, setBalance) {
-    let amount = await props.contractContext.SafeBayToken.methods.balanceOf(props.contractContext.accounts[0]).call();
+    let amount = await props.contractContext.safebayToken.methods.balanceOf(props.contractContext.accounts[0]).call();
     setBalance(amount);
 }
 
 async function listenToTransferEvent(props, setBalance) {
     let callback = partial(getTokenBalance, props, setBalance);
-    props.contractContext.SafeBayToken.events.Transfer({ to: props.contractContext.accounts[0] }).on("data", callback);
+    props.contractContext.safebayToken.events.Transfer({ to: props.contractContext.accounts[0] }).on("data", callback);
 }
 
 
@@ -86,7 +86,7 @@ export default function BuyTokens(props) {
 
     // Handling the process of buying the tokens (interaction with SafeBayTokenSale smart contract)
     async function buyTokens() {
-        await props.contractContext.SafeBayTokenSale.methods.buyTokens(props.contractContext.accounts[0]).send({
+        await props.contractContext.safebayTokenSale.methods.buyTokens(props.contractContext.accounts[0]).send({
             from: props.contractContext.accounts[0],
             value: buyTokenAmount
         })

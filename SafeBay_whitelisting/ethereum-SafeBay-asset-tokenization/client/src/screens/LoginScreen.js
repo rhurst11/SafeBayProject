@@ -95,7 +95,7 @@ export default function LoginScreen() {
                                     <img src="SafeBayLogo.svg" alt="SafeBayLogo" style={{ height: "160px", width: "160px" }} />
                                 </a>
                                 <div className={classes.subtitle}>
-                                    ERC-20 token backed by <span style={{ color: "#18FF1E" }}>Kryptonite</span> mineral
+                                    ERC-20 Utility Token<span style={{ color: "#18FF1E" }}>SafeBay</span> future security
                             </div>
                             </Grid>
                             <Grid item xs={12}>

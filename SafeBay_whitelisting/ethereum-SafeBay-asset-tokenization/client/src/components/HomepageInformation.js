@@ -11,10 +11,10 @@ export default function HomepageInformation() {
                 <Grid item xs={3}></Grid>
                 <Grid item xs={6}>
                     <h2 style={{ 'color': 'white', 'fontFamily': 'monospace', 'fontWeight': 'bold'}}>
-                        Obviously a fake stablecoin backed by <span style={{ color: "#18FF1E" }}>Kryptonite</span> mineral
+                        SafeBay Token will support our security protocol! <span style={{ color: "#18FF1E" }}>SafeBay</span> 
                     </h2>
                     <h2 style={{ 'color': 'white', 'fontFamily': 'monospace', 'fontWeight': 'lighter' }}>
-                        Each Kryptonite ERC-20 token is 1-to-1 pegged to the 1g of Kryptonite mineral
+                        SafeBay Tokens must be owned in order to use the application and defi protocols. The supply will be burned with every transaction.
                     </h2>
                     <a href="https://stark-cliffs-51978.herokuapp.com/">
                         <img src="SafeBayLogo.svg" alt="SafeBayLogo" style={{ height: "160px", width: "160px" }} />
