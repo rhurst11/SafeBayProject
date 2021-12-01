@@ -47,7 +47,7 @@
       <ul class="nav flex-sm-column">
           <div class="jumbotron jumbotron-fluid" style=background-color:black;>
             <p style="text-align:center;">
-            <img class="img-xs rounded-square " src="/static/images/logo.png" style="text-align: center;" alt="Logo" width="310px" height="300px" align: ;>
+            <img class="img-xs rounded-square " src="/static/images/smallerlogo.png" style="text-align: center;" alt="Logo" width="300px" height="300px" align: ;>
             </p>
           </div>
       </ul>
@@ -181,6 +181,10 @@
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
               <a class="nav-item nav-link" href="{{ url_for('about') }}">About Us</a>
               <a class="nav-item nav-link" href="{{ url_for('coming_soon') }}">Coming Soon</a>
+              <a class="nav-item nav-link" href="{{ url_for('whitepaper') }}">Whitepaper</a>
+              <a class="nav-item nav-link" href="https://en.wikipedia.org/wiki/Whitelisting" target="_blank" >Whitelist</a>
+
+
               {% if current_user.is_authenticated %}
                 <a class="nav-item nav-link" href="{{ url_for('facereg') }}"> ACCESS YOUR INFO</a>
               {% endif %}
