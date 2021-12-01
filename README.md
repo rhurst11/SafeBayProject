@@ -39,25 +39,25 @@ See 'Final_Requirements.txt' folder for all of the project's required libraries.
 **Webpage Display and Usage**
 
 SafeBay's home page
-![markdown-image](pictures/SB1.png)
+![markdown-image](pictures/SB1.PNG)
 
 Whitepaper and Tokenomics Section
-![markdown-image](pictures/SB2.png)
+![markdown-image](pictures/SB2.PNG)
 
 Token Allocation plans
-![markdown-image](pictures/SB3.png)
+![markdown-image](pictures/SB3.PNG)
 
 User Registration section
-![markdown-image](pictures/SB4.png)
+![markdown-image](pictures/SB4.PNG)
 
 Login Interface
-![markdown-image](pictures/SB5.png)
+![markdown-image](pictures/SB5.PNG)
 
 FaceID setup
-![markdown-image](pictures/SB6.png)
+![markdown-image](pictures/SB6.PNG)
 
 With FaceID successfully set up, users can add and view their private information. Do not input private information yet, still in development.
-![markdown-image](pictures/SB7.png)
+![markdown-image](pictures/SB7.PNG)
 
 **Contributors**
 
