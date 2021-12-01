@@ -32,9 +32,12 @@ See 'Final_Requirements.txt' folder for all of the project's required libraries.
 ***SafeBay Whitelisting dApp***
 
 1) Navigate to the "ICO-whitelisting_dapp" folder then into the "SafeBay_whitelisting" folder and finally into the "ethereum=SafeBay-asset-tokenization" folder. 
-2) Ensure that Ganache is running to be able to connect MetaMask.
-3) In order to start the site run the following commands: 'cd client' and 'npm start'.
-4) See the dedicated Readme file for the whitelisting if there are any complications in running the code. 
+2) Ensure that nodejs, solidity compiler, and truffle are installed per the requirements folder. 
+3) Navigate to the root directory and run 'npm install', then navigate to the client folder and run 'npm install'
+4) Open up Ganache and set up a quick ethereum blockchain and update the 'truffle-config' file with the network parameter if necessary.
+5) Compile and migrate smart contracts to the local blockchain with the following code (from truffle console): 'truffle migrate --network "development/ganache-local" --reset'.
+6) Start the react app by navigating into the client folder and running the command 'npm start'.
+7) If you would like to test the smart contracts, navigate back to the root directory and run the command: 'truffle test'.
 
 **Webpage Display and Usage**
 
