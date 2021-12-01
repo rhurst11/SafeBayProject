@@ -83,73 +83,47 @@
       "proName": "BITFINEX:ADAUSD"
     },
     {
-      "description": "AAPL/USD",
-      "proName": "NASDAQ:AAPL"
-    },
-    {
-      "description": "AMZN/USD",
-      "proName": "NASDAQ:AMZN"
-    },
-    {
-      "description": "BA/USD",
-      "proName": "NYSE:BA"
-    },
-    {
-      "description": "NVDA/USD",
-      "proName": "NASDAQ:NVDA"
-    },
-    {
-      "description": "BRK.A/USD",
-      "proName": "NYSE:BRK.A"
-    },
-    {
-      "description": "GS/USD",
-      "proName": "NYSE:GS"
-    },
-    {
-      "description": "COP/USD",
-      "proName": "NYSE:COP"
-    },
-    {
-      "description": "GILD/USD",
-      "proName": "NASDAQ:GILD"
-    },
-    {
-      "description": "CCOI/USD",
-      "proName": "NASDAQ:CCOI"
-    },
-    {
-      "description": "PG/USD",
-      "proName": "NYSE:PG"
-    },
-    {
-      "description": "TLT/USD",
-      "proName": "NASDAQ:TLT"
-    },
-    {
-      "description": "VOOG/USD",
-      "proName": "AMEX:VOOG"
-    },
-    {
-      "description": "VGLT/USD",
-      "proName": "NASDAQ:VGLT"
-    },
-    {
-      "description": "VMBS/USD",
-      "proName": "NASDAQ:VMBS"
-    },
-    {
-      "description": "IWF/USD",
-      "proName": "AMEX:IWF"
-    },
-    {
-      "description": "IGSB/USD",
-      "proName": "NASDAQ:IGSB"
-    },
-    {
-      "description": "GOVT/USD",
-      "proName": "AMEX:GOVT"
-    }
+        "description": "DOT",
+        "proName": ""
+      },
+      {
+        "description": "CAKE",
+        "proName": ""
+      },
+      {
+        "description": "AVAX",
+        "proName": ""
+      },
+      {
+        "description": "KOTI",
+        "proName": ""
+      },
+      {
+        "description": "SOL",
+        "proName": ""
+      },
+      {
+        "description": "CKB",
+        "proName": ""
+      },
+      {
+        "description": "KSM",
+        "proName": ""
+      },
+      {
+        "description": "USDT",
+        "proName": ""
+      },
+      {
+        "description": "USDC",
+        "proName": ""
+      },
+      {
+        "description": "MATIC",
+        "proName": ""
+      },
+    
+    
   ],
   "showSymbolLogo": true,
   "colorTheme": "light",
@@ -162,6 +136,7 @@
 </div>
 
 <body>
+  
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
@@ -179,10 +154,10 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('about') }}">About Us</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">Team</a>
               <a class="nav-item nav-link" href="{{ url_for('coming_soon') }}">Coming Soon</a>
               <a class="nav-item nav-link" href="{{ url_for('whitepaper') }}">Whitepaper</a>
-              <a class="nav-item nav-link" href="https://en.wikipedia.org/wiki/Whitelisting" target="_blank" >Whitelist</a>
+              <a class="nav-item nav-link" href="https://safebayproject.web.app/" target="_blank" >Whitelist</a>
               <a class="nav-item nav-link" href="{{ url_for('token_allocation') }}">Token Allocation</a>
 
               {% if current_user.is_authenticated %}
@@ -218,12 +193,18 @@
           {% endwith %}
           {% block content %}{% endblock %}
         </div>
+    
+     
+    <!-- ===============================================-->
+    <!--    Sidebar-->
+    <!-- ===============================================-->
+    
         <div class="col-md-4">
           <div class="content-section">
             <h3>Our Sidebar</h3>
             <p class='text-muted'>Informational Resources
               <ul class="list-group">
-                <a class="nav-item nav-link" href="https://blog.trezor.io/what-happens-to-lost-bitcoin-71eb5a80cc74" target="_blank" >What happens to lost Biitcoin</a>
+                <a class="nav-item nav-link" href="https://blog.trezor.io/what-happens-to-lost-bitcoin-71eb5a80cc74" target="_blank" >What happens to lost Bitcoin</a>
                 <a class="nav-item nav-link" href="https://www.nytimes.com/2021/01/13/business/tens-of-billions-worth-of-bitcoin-have-been-locked-by-people-who-forgot-their-key.html" target="_blank" >Billions in lost Bitcoin</a>
                 <a class="nav-item nav-link" href="https://www.yahoo.com/now/4-2-billion-lost-bitcoin-154948781.html" target="_blank" >Estimated Recoverable Amount</a>
                 <a class="nav-item nav-link" href="https://cryptonews.com/exclusives/seed-phrase-and-wallet-recovery-still-isn-t-idiot-proof-5680.htm" target="_blank" >Seed Phrase Recovery still a WIP</a>
@@ -234,6 +215,8 @@
         </div>
       </div>
     </main>
+
+   
 
     <!-- ===============================================-->
     <!--    JavaScripts-->

@@ -53,7 +53,7 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template('about.html', title='About')
+    return render_template('about.html', title='Team')
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -115,11 +115,6 @@ def account():
 @app.route("/coming_soon")
 def coming_soon():
     return render_template('coming_soon.html')
-
-@app.route("/fuckinshit")
-def fuckinshit():
-    return render_template('fuckinshit.html"')
-
 
 # starting to integrate from functional facelogin app
 
