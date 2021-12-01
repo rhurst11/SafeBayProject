@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<ul class="nav">
+    <li class="nav-item profile">
+      <div class="profile-desc">
+        <div class="profile-pic">
+          <div class="count-indicator">
+            <!---<img class="img-fluid-lrg" src="/static/images/AdobeStock_253831649.jpeg" alt="coming soon">--->
+            <span class="count bg-success"></span>
+          </div> 
+        </div>
+
+        <form action="action_page.php" style="border:1px solid #ccc">
+            <div class="container">
+            <h1> Coming Soon!</h1>
+              <h1>Sign Up for more information</h1>
+              <hr>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+              </label>
+          
+              <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+          
+              <div class="clearfix">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Sign Up</button>
+              </div>
+            </div>
+          </form>
+          
+
+        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+          <a href="#" class="dropdown-item preview-item">
+            <div class="preview-thumbnail">
+              <div class="preview-icon bg-dark rounded-circle">
+                <i class="mdi mdi-settings text-primary"></i>
+              </div>
+            </div>
+           
+        </div>
+      </div>
+    </li>
+    
+  </ul>
+ 
+  {% endblock content %}
