@@ -31,6 +31,7 @@ for main site, click [here](https://stark-cliffs-51978.herokuapp.com/)
 9) See "Webpage Display and Usage" for a site walk-through. 
 
 ***SafeBay Whitelisting dApp***
+for our whitelist, click [here](https://safebayproject.web.app/)
 
 1) Navigate to the "ICO-whitelisting_dapp" folder then into the "SafeBay_whitelisting" folder and finally into the "ethereum=SafeBay-asset-tokenization" folder. 
 2) Ensure that nodejs, solidity compiler, and truffle are installed per the requirements folder. 
