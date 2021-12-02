@@ -17,6 +17,7 @@ See 'Final_Requirements.txt' folder for all of the project's required libraries.
 **Installation Guide** 
 
 ***Primary SafeBay Site***
+for main site, click [here](https://stark-cliffs-51978.herokuapp.com/)
 
 1) Clone the repository
 2) Open up your python CLI and create a new environment with the following command: 'conda create -n <name> python=3.7 anaconda -y'.
