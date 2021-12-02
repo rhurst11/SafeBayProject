@@ -6,6 +6,8 @@
 
 This repository contains the files relating to SafeBay. SafeBay, when completed, will offer a final and near failsafe layer of safety and opportunity for wallet recovery due to loss of seed recovery phrases often required in the decentralized finance space. Our motivation for building out this project stems from the projected figures of value lost in cryptocurrency due to lost seed phrases.
 
+For presentation, click [here](https://github.com/rhurst11/SafeBayProject/blob/main/SafeBay_Final_Presentation.pdf)
+
 **Technologies** 
 
 Programming Languages: Python 3.7.10 and Solidity
@@ -40,7 +42,7 @@ for our whitelist, click [here](https://safebayproject.web.app/)
 5) Compile and migrate smart contracts to the local blockchain with the following code (from truffle console): 'truffle migrate --network "development/ganache-local" --reset'.
 6) Start the react app by navigating into the client folder and running the command 'npm start'.
 7) If you would like to test the smart contracts, navigate back to the root directory and run the command: 'truffle test'.
-
+    
 **Webpage Display and Usage**
 
 SafeBay's home page
